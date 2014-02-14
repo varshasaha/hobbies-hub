@@ -1,0 +1,24 @@
+Installation: 
+	-It is a standard html page.
+	-Just open SearchInterface.html with any web browser
+
+
+Features :
+	- UI includes quick and full filters
+	- Two layout for quick and full filter makes UI user friendly 
+	- Rating system to show ratings in five star style
+  	- Rating system to take input from user in five star style
+	- Slider to take input frequency from user
+	- Progress bar to show frequency in searched item
+	- Pagination(i used page size 5 i.e 5 items will be displayed per page)
+	- You can go to other page by clicking the page numbe(in the bottom of serach result)
+
+
+Video link: 
+http://youtu.be/p55JRNPTGQQ	
+
+
+with regards,
+saransh
+
+		

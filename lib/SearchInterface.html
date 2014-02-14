@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- CSS dependencies -->
+		
+<meta charset=utf-8 />
+
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="SearchInterface.css">
+		<link type="text/css" href="css/jquery-ui-slider.css" rel="stylesheet" />
+		<style>
+			
+
+		</style>
+	    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>-->
+		
+		<!--<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>-->
+		<script src="http://code.jquery.com/jquery.min.js"></script>
+        <!--<script src="bootstrap/js/bootstrap.min.js"></script>-->
+		
+		<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap.js"></script>
+		<script src="data.js"></script>
+		<script src="SearchInterface.js"></script>
+		
+		
+		<script>			
+		</script>
+	</head>
+	<body>
+		<div id='container'>
+		<div class="navbar" style='margin-bottom:0em;'>
+			<div class="navbar-inner">
+				<div class="containe"> 
+					<h3 style='display:inline;color:#2d95b7;'>Item Finder</h3>				
+				</div>
+			</div>
+		</div>
+	
+			<div id='quickFilters'>
+			<table style='width:100%;'>
+				<tr>
+					<td>
+					<h6 style='display:inline;'>Select for<span class='required'>*</span> : </h6>
+					</td>
+					<td>
+					<input type='radio' value='male' name='gender' id='male'/><label for='male' style='display:inline;'>&nbsp; &nbsp;<img src='male.jpg' class='gender' title='Male'>&nbsp;</label>
+					<input type='radio' value='female' name='gender' id='female' /><label for='female' style='display:inline;'>&nbsp; &nbsp;<img src='female.jpg' class='gender' title='Female'>&nbsp;</label>
+					<input type='radio' value='both' name='gender' id='both' checked/><label for='both' style='display:inline;'>&nbsp; &nbsp;<img src='malefemale.jpg' class='gender' title='Both'></label>
+					</td>
+				<!--</tr>
+				<tr>-->
+					
+					<td valign='top'>Country</td>
+					<td>					
+					<select id='countryQ'>						
+						<option value='Australia'>Australia</option>
+						<option value='Britain'>Britain</option>
+						<option value='India'>India</option>
+						<option value='U.S.'>U.S.</option>						
+					</select>
+					</td>
+					
+				</tr>
+				<tr>
+					<td>
+					<h6 style='display:inline;'>Demographic areas<span class='required'>*</span> : </h6>
+					</td>
+					<td>					
+					<!--<select>						
+						<option>18-30 Caucasian</option>
+						<option>18-30 Hispanic </option>
+						<option>18-30 All      </option>
+						<option>19-49 All      </option>
+					</select>-->
+					<div class="navbar">
+						<ul class="nav">
+							<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Demographic areas<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a id="chkA" class="multicheck" href="#">18-30 Caucasian
+								<span class="pull-right"></span></a></li>
+								<li><a id="chkB" class="multicheck checked" href="#">18-30 Hispanic
+								<span class="icon-ok pull-right"></span></a></li>
+								<li><a id="chkC" class="multicheck checked" href="#">18-30 All
+								<span class="icon-ok pull-right"></span></a></li>
+								<li><a id="chkD" class="multicheck checked" href="#">19-30 All
+								<span class="icon-ok pull-right"></span></a></li>
+								<div class="clearfix"></div>
+							</ul>
+							</li>	
+						</ul>           
+					</div>
+					</td>
+					
+				<!--</tr>
+				<tr>-->
+					<td valign='top'>State : <br/><br/>City : </td>
+					<td>					
+					<select id='stateQ'>						
+						<option value='U.P.'>U.P.</option>
+						<option value='Bihar'>Bihar</option>
+						<option value='Karanataka'>Karanataka</option>
+						<option value='Punjab'>Punjab</option>						
+					</select><br/>
+					<!--</td>
+				<!--</tr>
+				<tr>-->
+					<!--<td valign='top'><br/>City</td>
+					<td>				-->	
+					<select id='cityQ'>
+						<option value='Bangalore'>Bangalore</option>
+						<option value='Mathura'>Mathura</option>
+						<option value='Agra'>Agra</option>
+						<option value='Chandigarh'>Chandigarh</option>
+						<option value='Mohali'>Mohali</option>						
+					</select>
+					</td>
+				</tr>				
+				<tr>
+					<td valign='bottom'>
+						<a href='javascript:void(0);' onclick='showHideFullFilters();'>Show full filters >></a>
+					</td>
+					<td colspan='2' style='text-align:center;'>
+						<button class='btn' onclick='search();'>Search</button>
+						
+					</td>
+					<td valign='bottom'>
+						<input type='checkbox' id='showLoc'  class='checkLoc' style='margin-bottom:7px;' onclick='showHideLoc();' checked><label for='showLoc'style='display:inline;'>&nbsp;Group by location</label>
+					</td>
+				</tr>				
+				
+			</table>
+				
+			</div>
+			
+			
+			
+			<div id='fullFilters'>
+			<table style='width:100%;'>
+				<tr>
+					<td>
+					<h6 style='display:inline;'>Select for<span class='required'>*</span> : </h6>
+					</td>
+					<td style='width:70%;'>
+					<input type='radio' name='genderF' id='maleF' value='male'><label for='maleF' style='display:inline;'>&nbsp; &nbsp;<img src='male.jpg' class='gender' title='Male'>&nbsp;</label>
+					<input type='radio' name='genderF' id='femaleF' value='female'><label for='femaleF' style='display:inline;'>&nbsp; &nbsp;<img src='female.jpg' class='gender' title='Female'>&nbsp;</label>
+					<input type='radio' name='genderF' id='bothF' value='both' checked><label for='bothF' style='display:inline;'>&nbsp; &nbsp;<img src='malefemale.jpg' class='gender' title='Both'></label>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<h6 style='display:inline;'>Demographic<br/>areas<span class='required'>*</span> : </h6>
+					</td>
+					<td>					
+					<!--<select>						
+						<option>18-30 Caucasian</option>
+						<option>18-30 Hispanic </option>
+						<option>18-30 All      </option>
+						<option>19-49 All      </option>
+					</select>-->
+					<div class="navbar">
+						<ul class="nav">
+							<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Demographic areas<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a id="chkA" class="multicheck" href="#">18-30 Caucasian
+								<span class="pull-right"></span></a></li>
+								<li><a id="chkB" class="multicheck checked" href="#">18-30 Hispanic
+								<span class="icon-ok pull-right"></span></a></li>
+								<li><a id="chkC" class="multicheck" href="#">18-30 All
+								<span class="icon-ok pull-right"></span></a></li>
+								<li><a id="chkD" class="multicheck checked" href="#">19-30 All
+								<span class="icon-ok pull-right"></span></a></li>
+								<div class="clearfix"></div>
+							</ul>
+							</li>	
+						</ul>           
+					</div>
+					</td>					
+				</tr>
+				
+				<tr>
+					<td colspan='2'><hr/></td>					
+				</tr>
+				
+				
+				<tr>
+					<td>Country :</td>
+					<td>					
+					<select id='countryF'>						
+						<option value='Australia'>Australia</option>
+						<option value='Britain'>Britain</option>
+						<option value='India'>India</option>
+						<option value='U.S.'>U.S.</option>						
+					</select>
+					</td>
+					
+					
+				</tr>
+				<tr>
+					<td>State :</td>
+					<td>					
+					<select id='stateF'>						
+						<option value='U.P.'>U.P.</option>
+						<option value='Bihar'>Bihar</option>
+						<option value='Karanataka'>Karanataka</option>
+						<option value='Punjab'>Punjab</option>						
+					</select><br/>
+					</td>
+				</tr>
+				<tr>
+					<td>City :</td>
+					<td>	
+					<select id='cityF'>
+						<option value='Bangalore'>Bangalore</option>
+						<option value='Mathura'>Mathura</option>
+						<option value='Agra'>Agra</option>
+						<option value='Chandigarh'>Chandigarh</option>
+						<option value='Mohali'>Mohali</option>						
+					</select>
+					</td>
+				</tr>
+				<!--Additional filters here-->
+				
+				<tr>
+					<td>Zip code :</td>
+					<td>	
+						<input type='text' class='textBox'>
+					</td>
+				</tr>				
+				
+				<tr>
+					<td colspan='2'><hr/></td>					
+				</tr>
+				
+				
+				<tr>
+					<td>Frequency :</td>
+					<td>	
+					<!--<select>
+						<option>Below-10</option>
+						<option>10-25</option>
+						<option>25-50</option>
+						<option>50-75</option>
+						<option>75-90</option>						
+						<option>90-100</option>						
+					</select>-->
+					<!-- Slider -->				
+            
+					<div id="filter" style='width:150px;float:left;margin-top:6px;'></div>
+					<div id="frequencyVal" style='float:left;padding-top:2px;'></div>
+					<input type='hidden' id='frequency'/>
+					<!--end slider-->
+
+					
+					</td>
+				</tr>
+				<tr>
+					<td>Rating :</td>
+					<td>	
+					<!--<select>
+						<option>5</option>
+						<option>4</option>
+						<option>3</option>
+						<option>2</option>
+						<option>1</option>												
+					</select>-->
+						<div id='ratingInput' style='cursor:pointer'>
+							<img src='star/emptyStar.png' onclick='filterRating("1");' id='firstStar'>
+							<img src='star/emptyStar.png' onclick='filterRating("2");'>
+							<img src='star/emptyStar.png' onclick='filterRating("3");'>
+							<img src='star/emptyStar.png' onclick='filterRating("4");'>
+							<img src='star/emptyStar.png' onclick='filterRating("5");'>
+							<input type='hidden' id='primaryRating' value='0'>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>Secondary<br/>Rating :</td>
+					<td>	
+					<!--<select>
+						<option>5</option>
+						<option>4</option>
+						<option>3</option>
+						<option>2</option>
+						<option>1</option>												
+					</select>-->
+						<div id='secRatingInput' style='cursor:pointer'>
+							<img src='star/emptyStar.png' onclick='filterSecRating("1");' id='firstStarSec'>
+							<img src='star/emptyStar.png' onclick='filterSecRating("2");'>
+							<img src='star/emptyStar.png' onclick='filterSecRating("3");'>
+							<img src='star/emptyStar.png' onclick='filterSecRating("4");'>
+							<img src='star/emptyStar.png' onclick='filterSecRating("5");'>
+							<input type='hidden' id='secRating' value='0'>
+						</div>
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan='2'><hr/></td>					
+				</tr>
+				
+				
+				<tr>
+					<td>Location<br/>Description :</td>
+					<td>	
+						<input type='text' class='textBox'>
+					</td>
+				</tr>
+				<tr>
+					<td>Location<br/>Item IDs :</td>
+					<td>	
+						<input type='text' class='textBox'>
+					</td>
+				</tr>
+
+
+
+
+				<tr>
+					<td colspan='2' style='padding-right:45px;' valign='bottom'>
+						<br/>
+						<button class='btn'  onclick='search();'>Search</button>
+						<span style='float:right;'><input type='checkbox' class='checkLoc' id='showLocF' style='margin-bottom:7px;' onclick='showHideLoc();' checked><label for='showLocF'style='display:inline;'>&nbsp;Group by location</label></span>
+						
+					</td>
+				</tr>
+				<tr>
+					<td colspan='2' style='text-align:left;'>
+						<a href='javascript:void(0);' onclick='showHideFullFilters();'>Show quick Filters <<</a>											
+					</td>				
+				</tr>
+			</table>
+				
+			</div>
+			
+			
+			
+			
+		<div id='resultContainer'>			
+		</div>
+			<div class='ItemDiv' id='dummy'>
+				
+				<div class='itemHeader'><h4 class='itemName'>ItemName</h4></div>
+				<hr/>
+				<div class='itemBody'>
+					<div>
+						<b>Description :</b>
+						<span class='itemDesc'> Pen drive with 8 gb memory</span>
+					</div>
+					<div>
+						<span>
+							<b>City : </b>
+							<span class='cityName'>Sidney</span>
+						</span>&nbsp;&nbsp;&nbsp;&nbsp;
+						<span>
+							<b>Zip  : </b>
+							<span class='zip'>560068</span>
+						</span>
+					</div>
+					<div>
+						<div style='float:left;margin-right:10px;'>
+							<div style='float:left;'><b>Frequency : </b></div>
+							
+							    <div class="progress" style='width:120px;float:left;margin-bottom:0px;margin-left:10px;margin-right:10px;'>
+									<div class="bar" style="width: 60%;"></div>
+								</div>
+								<span class='frequency'>85</span>
+						</div>
+						<div style='float:left;margin-right:10px;'>
+							<div style='float:left;'><b>Rating  : </b></div>
+							<div class='rating'></div>
+						</div>
+						<div style='float:left;margin-right:10px;'>
+							<div style='float:left;'><b>Secondary Rating : </b></div>
+							<div class='secRating'></div>
+						</div>
+					</div>
+					
+					<div style='clear:both;'>
+						<b>Item Location Description : </b>
+						<span class='ILDesc'>Available at location abc.</span>						
+					</div>
+				</div>
+				<hr/>
+			
+			</div>
+			<div class='locationDiv' id='dummyLoc'>
+				<h4 style='margin-left:2%;' class='location'>Location</h4>
+				<hr/>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-slider.min.js"></script>
+        <script type="text/javascript" src="js/slider.js"></script>
+
+	</body>
+</html>

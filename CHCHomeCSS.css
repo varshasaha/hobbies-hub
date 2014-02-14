@@ -1,0 +1,16 @@
+#Container
+{
+	width:100%;
+	height:640px;
+	margin-left:auto;
+	margin-right:auto;
+	border: solid 1px #AAAAAA;
+	border-radius: 6px;
+	padding-right:8px;
+}
+#CategoryTabDiv
+{
+	width:100%;
+	height:40px;
+
+}

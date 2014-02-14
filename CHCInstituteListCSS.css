@@ -1,0 +1,126 @@
+#Container
+{
+	width:100%;
+	
+	margin-left:auto;
+	margin-right:auto;
+	border: solid 1px #AAAAAA;
+	border-radius: 6px;
+	padding-right:8px;
+	
+	
+}
+#fullFilters
+{
+
+margin-left:10px;
+margin-top:10px;
+padding:10px;
+cursor:pointer;
+border: solid 1px #cccccc;
+border-radius:5px;
+width:30%;
+float:left;
+clear:left;
+}
+#resultContainer
+{
+float:right;
+width:63%;
+border:solid 1px #cccccc;
+border-radius:5px;
+margin:10px;
+
+}
+td
+{
+padding:3px;
+}
+.gender
+{
+width:24px;
+height:24px;
+}
+.ui-menu
+{
+width:200px;
+position:fixed;
+}
+#CategoryMenuDiv
+{
+display:none;
+}
+.ui-icon
+{
+	background-image:url(images/ui-icons_ffffff_256x240.png);
+}
+
+#CategoryTabDiv
+{
+	width:100%;
+	height:40px;
+	
+
+}
+#hiddenDataContainer
+{
+	display:none;
+}
+/*for rating to show as star*/
+.rating {
+float:left;
+margin: 0;
+margin-left:10px;
+padding: 0;
+width: 75px;
+height: 15px;
+background-image: url(lib/star/stars.png);
+background-repeat: no-repeat;
+position: relative;
+}
+.secRating {
+float:left;
+margin: 0;
+margin-left:10px;
+padding: 0;
+width: 75px;
+height: 15px;
+background-image: url(lib/star/stars.png);
+background-repeat: no-repeat;
+position: relative;
+
+}
+.tabC
+{
+cursor:pointer;
+}
+.lebelC
+{
+	font-weight:bold;
+}
+.ItemDiv
+{
+	font-family: Verdana,Arial,sans-serif;
+	padding-left:1em;
+	color:#505050;
+}
+.itemBody
+{
+	padding-bottom:1.5em;	
+}
+.itemHeader
+{
+	color: #DC404A;
+	font-size:1.1em;
+	font-weight:bold;
+	font-style:italic;
+	padding-bottom:5px;
+}
+select
+{
+width:160px;
+}
+.textBox
+{
+width:145px;
+}
